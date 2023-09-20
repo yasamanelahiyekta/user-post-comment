@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import { useLocation } from 'react-router-dom';
 import './App.css';
+import Router from './Redux/Router';
+import Header from './components/header/Header';
+import Bread from './components/header/bread/Bread';
 
 function App() {
+  const { pathname } = useLocation()
+  const bread = pathname.split("/")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Bread bread={ bread } />
+      <Router />
     </div>
   );
 }
